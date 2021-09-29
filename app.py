@@ -6,7 +6,7 @@ def index():
 
 @app.route('/subject-choices')
 def subjectchoices():
-    return 'Subject Choices'
+    return render_template('subjectchoices.html')
 
 @app.route('/admission-policy')
 def admissionpolicy():
