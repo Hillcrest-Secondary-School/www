@@ -30,12 +30,16 @@
     <Compile Include="wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="static\" />
     <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="static\Home.css" />
+    <Content Include="static\nicepage.css" />
+    <Content Include="static\Post-Template.css" />
     <Content Include="templates\index.html" />
     <Content Include="templates\layout.html" />
-    <Content Include="templates\studentspace.html" />
+    <Content Include="templates\learners.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

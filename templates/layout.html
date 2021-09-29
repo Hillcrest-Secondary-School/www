@@ -1,50 +1,41 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html style="font-size: 16px;">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Hillcrest Secondary School">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Hillcrest Secondary</title>
-    <meta chatset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="static/nicepage.css" media="screen">
+    <link rel="stylesheet" href="static/Home.css" media="screen">
+    <meta name="generator" content="Nicepage 3.26.0, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 
-    <style>
-        body, html {
-            height: 100%;
-            font-family: "Inconsolata", sans-serif;
-        }
-
-        .bgimg {
-            background-position: center;
-            background-size: cover;
-            min-height: 75%;
-        }
-
-        .menu {
-            display: none;
-        }
-    </style>
-
-    
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
 </head>
-  
-<body>
-    <!-- Links (sit on top) -->
-    <div class="w3-top">
-        <div class="w3-row w3-padding w3-black">
-            <div class="w3-col s3">
-                <a href="{{ url_for('index') }}" class="w3-button w3-block w3-black">Home</a>
-            </div>
-            <div class="w3-col s3">
-                <a href="{{ url_for('studentspace') }}" class="w3-button w3-block w3-black">Student Space</a>
-            </div>
+<body class="u-body">
+    <section class="u-clearfix u-grey-80 u-section-1" id="sec-9032">
+        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <h1 class="u-text u-text-default u-text-1">Home</h1>
+            <h1 class="u-text u-text-default u-text-2">Learners</h1>
         </div>
-    </div>
+    </section>
 
-    <div class="w3-container">
-        <br />
-        <br />
-        {% block content %}
-        {% endblock %}
-    </div>
+    {% block content %}}
+    {% endblock%}
+
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-432a">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h5 class="u-text u-text-1">Contact us</h5>
+            <p class="u-small-text u-text u-text-variant u-text-2">
+                <b>Tel</b>: 044-6930 831<br><b>Fax</b>: 044-6931 435<br><b>E-Mail</b>: <a class="XqQF9c u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="mailto:hillcrestmb@gmail.com" target="_blank">hillcrestmb@gmail.com</a>
+                <br><b>Facebook</b>: <a class="XqQF9c u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2Fmollywayz&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNElrqKGMqqHb_LE7g0QcOJ955tkLw" target="_blank">https://www.facebook.com/mollywayz</a>
+                <br><b>MAIL</b>: 931 DA GAMASKOP 6501<br><b>Address</b>: BILL JEFFERY AVENUE, MOSSEL BAY 6500
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
