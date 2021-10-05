@@ -34,6 +34,7 @@
     <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="static\icon.png" />
     <Content Include="static\Home.css" />
     <Content Include="static\nicepage.css" />
     <Content Include="static\Post-Template.css" />
