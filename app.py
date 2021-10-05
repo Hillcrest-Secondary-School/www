@@ -10,17 +10,17 @@ def subjectchoices():
 
 @app.route('/admission-policy')
 def admissionpolicy():
-    return 'Admission Policy'
+    return render_template('admissionpolicy.html')
 
 @app.route('/shool-fees')
 def schoolfees():
-    return 'School Fees'
+    return render_template('schoolfees.html')
 
 @app.route('/circulars')
 def circulars():
-    return 'Circulars'
+    return render_template('circulars.html')
 
 @app.route('/learners')
-def studentspace():
+def learners():
         return render_template('learners.html')
 

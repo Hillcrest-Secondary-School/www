@@ -37,9 +37,18 @@
     <Content Include="static\Home.css" />
     <Content Include="static\nicepage.css" />
     <Content Include="static\Post-Template.css" />
+    <Content Include="templates\admissionpolicy.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\circulars.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\index.html" />
     <Content Include="templates\layout.html" />
     <Content Include="templates\learners.html" />
+    <Content Include="templates\schoolfees.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\subjectchoices.html">
       <SubType>Code</SubType>
     </Content>
