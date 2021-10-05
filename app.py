@@ -23,4 +23,3 @@ def circulars():
 @app.route('/learners')
 def learners():
         return render_template('learners.html')
-
