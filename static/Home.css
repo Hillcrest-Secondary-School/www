@@ -12,9 +12,10 @@
     font-size: 30px;
     text-align: center;
 }
-    
+
 .u-section-1 {
-  background-image: none;
+    background-image: url('static/stacked_books.jpg');
+    background-position: 50% 50%;
 }
 
 .u-section-1 .u-sheet-1 {

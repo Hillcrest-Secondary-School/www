@@ -23,3 +23,19 @@ def circulars():
 @app.route('/learners')
 def learners():
         return render_template('learners.html')
+
+@app.route('/class-notes')
+def notes():
+    return render_template('notes.html')
+
+@app.route('/school-calendar')
+def calendar():
+    return render_template('calendar.html')
+
+@app.route('/contact-a-teacher')
+def contact():
+    render_template('contact.html')
+
+@app.route('/curriculum')
+def curriculum():
+    return render_template('curriculum.html')

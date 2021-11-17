@@ -11,7 +11,7 @@
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <LaunchProvider>Web launcher</LaunchProvider>
-    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <WebBrowserUrl>http://localhost:5000</WebBrowserUrl>
     <OutputPath>.</OutputPath>
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>Hillcrest Website</Name>
@@ -38,15 +38,28 @@
     <Content Include="static\Home.css" />
     <Content Include="static\nicepage.css" />
     <Content Include="static\Post-Template.css" />
+    <Content Include="static\stacked_books.jpg" />
     <Content Include="templates\admissionpolicy.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\calendar.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="templates\circulars.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="templates\contact.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\curriculum.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\index.html" />
     <Content Include="templates\layout.html" />
     <Content Include="templates\learners.html" />
+    <Content Include="templates\notes.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\schoolfees.html">
       <SubType>Code</SubType>
     </Content>

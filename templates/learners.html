@@ -1,4 +1,40 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Hello World! You are at Learners.</h1>
+<section class="u-align-center u-clearfix u-grey-15 u-section-1" id="sec-0a66" data-image-width="1280" data-image-height="853">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-text-1">Hillcrest Secondary School - Learner's Dashboard</h1>
+        <div class="u-expanded-width u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+                <a href="{{ url_for('notes') }}" class="u-btn u-button-style u-hover-grey-dark-2 u-palette-2-base u-btn-1u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-black u-list-item-1">
+                    <div class="">
+                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+                            <h4 class="u-text u-text-default u-text-2">Class Notes</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('calendar') }}" class="u-btn u-button-style u-hover-grey-dark-2 u-palette-2-base u-btn-2u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-black u-list-item-2">
+                    <div class="">
+                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+                            <h4 class="u-text u-text-default u-text-3">School Calendar</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('contact') }}" class="u-btn u-button-style u-hover-grey-dark-2 u-palette-2-base u-btn-1u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-black u-list-item-1">
+                    <div class="">
+                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+                            <h4 class="u-text u-text-default u-text-2">Contact a Teacher</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('curriculum') }}" class="u-btn u-button-style u-hover-grey-dark-2 u-palette-2-base u-btn-2u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-black u-list-item-2">
+                    <div class="">
+                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+                            <h4 class="u-text u-text-default u-text-3">Curriculum</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
