@@ -1,5 +1,8 @@
 from flask import *
+from werkzeug import *
+
 app = Flask(__name__)
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -19,6 +22,16 @@ def schoolfees():
 @app.route('/circulars')
 def circulars():
     return render_template('circulars.html')
+@app.route('/upload')
+def upload():
+   return render_template('upload.html')
+
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(f.filename)
+      return render_template('upload.html', success=True)
 
 @app.route('/learners')
 def learners():
