@@ -1,7 +1,7 @@
 ﻿{% extends "layout.html" %}
 {% block content %}
 
-<section class="u-grey-5 u-align-center u-clearfix u-image u-block-c418-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" id="carousel_6261" data-source="fix" data-id="c418" data-image-width="1980" data-image-height="1214" style="background-image: url(&quot;/1326f7e4718d5a/14.jpg&quot;); background-position: 50% 50%" data-uploaded-src="np://user.desktop.nicepage.com/Site_28881568/images/14.jpg" data-block="39">
+<section class="u-grey-5 u-align-center u-clearfix u-image u-block-c418-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" id="carousel_6261" data-source="fix" data-id="c418" data-image-width="1980" data-image-height="1214" style="background-image: url('static/14.jpg'); background-position: 50% 50%" data-uploaded-src="np://user.desktop.nicepage.com/Site_28881568/images/14.jpg" data-block="39">
     <form action="http://localhost:5000/uploader" method="POST"
           enctype="multipart/form-data">
         <input type="file" id="fileElem" class="visually-hidden" name="file" />
@@ -18,7 +18,6 @@
                                 // Move to a new location or you can do something else
                                 window.location.href = "/upload";
                             }, 5000);
-
                         </script>
                         {% else %}
                         Upload Circulars
@@ -479,7 +478,6 @@
             input.visually-hidden:focus-within + label {
                 outline: thin dotted;
             }
-
         </style>
     </form>
 </section>

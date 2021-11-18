@@ -2,26 +2,34 @@ from flask import *
 from werkzeug import *
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER']='circulars'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', footer=True)
 
 @app.route('/subject-choices')
 def subjectchoices():
-    return render_template('subjectchoices.html')
+    return render_template('subjectchoices.html', footer=True)
 
 @app.route('/admission-policy')
 def admissionpolicy():
-    return render_template('admissionpolicy.html')
+    return render_template('admissionpolicy.html', footer=True)
 
 @app.route('/shool-fees')
 def schoolfees():
-    return render_template('schoolfees.html')
+    return render_template('schoolfees.html', footer=True)
 
 @app.route('/circulars')
 def circulars():
-    return render_template('circulars.html')
+
+    return render_template('circulars.html', footer=True)
+
+@app.route('/circulars/<path:filename>', methods = ['GET', 'POST'])
+def download(filename):
+    full_path = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
+    return send_from_directory(full_path, filename)
+
 @app.route('/upload')
 def upload():
    return render_template('upload.html')
@@ -47,7 +55,7 @@ def calendar():
 
 @app.route('/contact-a-teacher')
 def contact():
-    render_template('contact.html')
+    return render_template('contact.html')
 
 @app.route('/curriculum')
 def curriculum():

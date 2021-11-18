@@ -30,10 +30,12 @@
     <Compile Include="wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="circulars\" />
     <Folder Include="static\" />
     <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="static\14.jpg" />
     <Content Include="static\icon.png" />
     <Content Include="static\Home.css" />
     <Content Include="static\nicepage.css" />
