@@ -1,5 +1,7 @@
 from flask import *
 from werkzeug import *
+from os import *
+import shutil
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER']='circulars'
@@ -22,12 +24,12 @@ def schoolfees():
 
 @app.route('/circulars')
 def circulars():
-
-    return render_template('circulars.html', footer=True)
+    circulardir = [f for f in listdir(path.join(app.root_path, app.config['UPLOAD_FOLDER'])) if path.isfile(path.join(app.root_path, app.config['UPLOAD_FOLDER'], f))]
+    return render_template('circulars.html', footer=True, circulardir=circulardir)
 
 @app.route('/circulars/<path:filename>', methods = ['GET', 'POST'])
 def download(filename):
-    full_path = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
+    full_path = path.join(app.root_path, app.config['UPLOAD_FOLDER'])
     return send_from_directory(full_path, filename)
 
 @app.route('/upload')
@@ -38,7 +40,8 @@ def upload():
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
-      f.save(f.filename)
+      f.save(path.join(app.config['UPLOAD_FOLDER'], f.filename))
+      
       return render_template('upload.html', success=True)
 
 @app.route('/learners')

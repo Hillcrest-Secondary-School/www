@@ -41,6 +41,7 @@
     <Content Include="static\nicepage.css" />
     <Content Include="static\Post-Template.css" />
     <Content Include="static\stacked_books.jpg" />
+    <Content Include="static\subject_choices.jpg" />
     <Content Include="templates\admissionpolicy.html">
       <SubType>Code</SubType>
     </Content>
@@ -56,6 +57,7 @@
     <Content Include="templates\curriculum.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="templates\Expert branding services HTML5 Template Live Demo.html" />
     <Content Include="templates\index.html" />
     <Content Include="templates\layout.html" />
     <Content Include="templates\learners.html" />

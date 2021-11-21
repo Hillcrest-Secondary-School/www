@@ -1,43 +1,610 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<section class="u-align-center u-clearfix u-grey-15 u-section-1" id="sec-0a66">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-text u-text-default u-text-1">There are no circulars to display.</h1>
-        <ul>
-            {% for file in files %}
-            <li> <a href="{{ url_for('download', filename=file) }}">{{ file }}</a></li>
-            {% endfor %}
-        </ul>
-        <h1 class="u-text u-text-default u-text-1">Hillcrest Secondary School</h1>
-        <div class="u-expanded-width u-list u-list-1">
-            <div class="u-repeater u-repeater-1">
-                <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-1">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                        <h4 class="u-text u-text-default u-text-2">Subject Choices</h4>
-                        <a href="{{ url_for('subjectchoices') }}" class="u-btn u-button-style u-hover-grey-dark-2 u-black u-btn-1">learn more</a>
+<section class="u-clearfix u-image u-block-f38f-1" custom-posts-hash="[T,T,T]" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="f38f" style="background-image: url('/static/circulars.jpg');" data-posts-content="[{'images':[],'maps':[],'videos':[],'icons':[{}],'textWidth':1140,'textHeight':600,'id':1,'groupId':2,'headingProp':'h3','textProp':'text'},{'images':[],'maps':[],'videos':[],'icons':[{}],'textWidth':1140,'textHeight':600,'id':1,'groupId':2,'headingProp':'h3','textProp':'text'},{'images':[],'maps':[],'videos':[],'icons':[{}],'textWidth':1140,'textHeight':600,'id':1,'groupId':2,'headingProp':'h3','textProp':'text'}]" data-style="list-1" id="sec-91bc" data-image-width="1280" data-image-height="910"  data-block="61" data-block-selected="true">
+    <div class="u-clearfix u-sheet u-block-f38f-2" style="min-height: 1004px;">
+
+        <div style="width: 50%; grid-template-rows: auto auto auto; height: auto; margin: 50px auto 60px;" class="cellspan u-list u-block-f38f-3" data-block="17" data-block-type="List">
+            
+            <div class="u-repeater u-block-f38f-16" style="grid-template-columns: 100%; grid-gap: 10px 10px; min-height: 100%" data-block="18" data-block-type="List">
+                <div class="u-container-style u-list-item u-repeater-item u-shape-rectangle u-grey-10 u-block-f38f-4" style="border-radius: 15px; background-image: none;" data-block="19" data-block-type="ListItem">
+                    <div class="u-container-layout u-similar-container u-block-f38f-5" style="padding-top: 0px; padding-bottom: 0px; padding-left: 30px; padding-right: 30px" data-container-layout-dom="4" data-block-type="">
+                        {% if circulardir %}
+                        {% for c in circulardir %}
+
+                        <a href="{{ url_for('download', filename = c) }}" download>
+                            <span class="u-icon u-icon-circle u-block-f38f-17" data-block="28" style="width: 63.5156px; height: 63.5156px; margin-top: 41.4063px; margin-right: 0px; margin-bottom: 0px; margin-left: auto" data-block-type="Icon">
+                                <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 480 480" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-481c"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 480 480" x="0px" y="0px" id="svg-481c" style="enable-background:new 0 0 480 480;" data-color="#000000"><g>
+                                <g>
+                                <path d="M378.528,214.688l-21.088-24c-5.824-6.624-15.904-7.264-22.56-1.472L272,244.32V16c0-8.832-7.168-16-16-16h-32    c-8.832,0-16,7.168-16,16v228.32l-62.88-55.104c-6.624-5.792-16.704-5.152-22.56,1.472l-21.088,23.968    c-5.856,6.656-5.184,16.8,1.472,22.624l126.528,110.752c6.048,5.28,15.04,5.28,21.088,0L377.056,237.28    C383.712,231.456,384.384,221.312,378.528,214.688z"></path>
+	                        </g>
+</g><g>
+                                <g>
+                                <path d="M416,416H64c-8.832,0-16,7.168-16,16v32c0,8.832,7.168,16,16,16h352c8.832,0,16-7.168,16-16v-32    C432,423.168,424.832,416,416,416z"></path>
+	</g>
+</g></svg>
+                            </span>
+                        </a>
+                        <p style="font-size: 1.875rem; margin-top: -55.7344px; margin-right: 115px; margin-bottom: 0px; margin-left: 0px" class="u-text u-block-f38f-13" data-block="21" data-block-type="Text">{{ c }}</p>
+                        {% endfor %}
+                        {% else %}
+                        <p style="font-size: 1.875rem; margin-top: 25.5px; margin-right: 115px; margin-bottom: 0px; margin-left: 0px" class="u-text u-block-f38f-13" data-block="21" data-block-type="Text">There are no circulars to download</p>
+                        <span class="u-icon u-icon-circle u-block-f38f-17" data-block="28" style="width: 63.5156px; height: 63.5157px; margin: -80.0938px 0px 0px auto; color: rgb(17, 17, 17) !important;" data-block-type="Icon">
+                            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-61ca"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-61ca" style="enable-background:new 0 0 512 512;" data-color="rgb(17, 17, 17)"><g>
+                            <g>
+                            <g>
+                            <path d="M486.4,0H25.6C11.468,0.015,0.015,11.468,0,25.6v366.933c0.015,14.132,11.468,25.585,25.6,25.6h145.067V435.2h-17.75     c-7.476-0.003-14.579,3.264-19.442,8.942l-34.017,39.692c-4.334,5.061-5.326,12.181-2.542,18.233     c2.785,6.053,8.837,9.932,15.5,9.933h287.167c6.663-0.002,12.715-3.88,15.5-9.933c2.785-6.053,1.792-13.173-2.542-18.233     l-34.017-39.692c-4.863-5.678-11.966-8.945-19.442-8.942h-17.75v-17.067H486.4c14.132-0.015,25.585-11.468,25.6-25.6V25.6     C511.985,11.468,500.532,0.015,486.4,0z M359.083,452.267c2.49-0.005,4.857,1.083,6.475,2.975l34.025,39.692H112.425     l34.017-39.692c1.618-1.892,3.985-2.98,6.475-2.975h17.75v17.067c-0.001,2.264,0.897,4.435,2.498,6.035     c1.601,1.601,3.772,2.499,6.035,2.498h153.6c2.264,0.001,4.435-0.897,6.035-2.498c1.601-1.601,2.499-3.772,2.498-6.035v-17.067     H359.083z M187.733,460.8v-42.667h136.533V460.8H187.733z M494.933,392.533c-0.003,4.712-3.822,8.53-8.533,8.533H25.6     c-4.711-0.003-8.53-3.822-8.533-8.533v-25.6h477.867V392.533z M494.933,349.867H17.067V25.6c0.003-4.711,3.822-8.53,8.533-8.533     h460.8c4.712,0.003,8.53,3.822,8.533,8.533V349.867z"></path>
+                            <path d="M418.133,34.133h-76.8c-4.713,0-8.533,3.82-8.533,8.533s3.821,8.533,8.533,8.533h76.8c4.713,0,8.533-3.82,8.533-8.533     S422.846,34.133,418.133,34.133z"></path>
+                            <path d="M469.333,34.133h-17.067c-4.713,0-8.533,3.82-8.533,8.533s3.821,8.533,8.533,8.533h17.067     c4.713,0,8.533-3.82,8.533-8.533S474.046,34.133,469.333,34.133z"></path>
+                            <path d="M366.933,175.147V128c-0.012-9.421-7.646-17.054-17.067-17.067H268.8L248.292,83.6c-3.236-4.264-8.272-6.778-13.625-6.8     h-72.533c-9.421,0.012-17.054,7.646-17.067,17.067V256c0.012,9.421,7.646,17.054,17.067,17.067h106.88     c11.902,33.716,45.509,54.746,81.035,50.71c35.526-4.036,63.559-32.069,67.595-67.595     C421.679,220.656,400.649,187.049,366.933,175.147z M162.133,93.867h72.533l12.802,17.067h-85.335V93.867z M265.037,256H162.133     V128h187.733v43.17c-23.216-2.675-46.383,5.398-62.907,21.923C270.435,209.618,262.361,232.784,265.037,256z M341.333,307.2     c-32.99,0-59.733-26.744-59.733-59.733s26.744-59.733,59.733-59.733c32.973,0.04,59.693,26.76,59.733,59.733     C401.067,280.456,374.323,307.2,341.333,307.2z"></path>
+                            <path d="M375.218,219.637c-0.786-2.958-3.097-5.269-6.055-6.055s-6.111,0.073-8.262,2.251L341.333,235.4l-19.567-19.566     c-3.341-3.281-8.701-3.256-12.012,0.054s-3.335,8.671-0.054,12.012l19.566,19.567L309.7,267.034     c-2.178,2.151-3.037,5.304-2.251,8.262c0.786,2.958,3.097,5.269,6.055,6.055c2.958,0.786,6.111-0.073,8.262-2.251l19.567-19.566     L360.9,279.1c3.338,3.296,8.711,3.279,12.029-0.038c3.317-3.317,3.334-8.69,0.038-12.029L353.4,247.467l19.567-19.567     C375.145,225.749,376.004,222.596,375.218,219.637z"></path>
+		</g>
+	</g>
+</g></svg>
+                        </span>
+         
+                        {% endif %}
+                        <br />
                     </div>
-                </div>
-                <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
-                        <h4 class="u-text u-text-default u-text-3">Admission Policy</h4>
-                        <a href="{{ url_for('admissionpolicy') }}" class="u-btn u-button-style u-hover-grey-dark-2 u-black u-btn-2">learn more</a>
-                    </div>
-                </div>
-                <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                        <h4 class="u-text u-text-default u-text-4">School Fees</h4>
-                        <a href="{{ url_for('schoolfees') }}" class="u-btn u-button-style u-hover-grey-dark-2 u-black u-btn-3">learn more</a>
-                    </div>
-                </div>
-                <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-4">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
-                        <h4 class="u-text u-text-default u-text-5">Circulars</h4>
-                        <a href="{{ url_for('circulars') }}" class="u-btn u-button-style u-hover-grey-dark-2 u-black u-btn-4">learn more</a>
-                    </div>
-                </div>
+                        </div>
+               
             </div>
         </div>
     </div>
+    <style data-mode="XL">
+        @media (max-width: 0px) {
+            .u-block-f38f-1 {
+                background-image: url("https://pixabay.com/get/g2277e6386a563e72f01d2ea4c5f2b8c707db76fd6d41651ebac29c5a66b7fa76b006f1d5a7eb11ca05262dd8795e288771f59430b233abcfa955794df377045f_1280.jpg")
+            }
+
+            .u-block-f38f-2 {
+                min-height: 1004px
+            }
+
+            .u-block-f38f-3 {
+                width: 622px;
+                grid-template-rows: auto auto auto;
+                height: auto;
+                margin-top: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 60px
+            }
+
+            .u-block-f38f-16 {
+                grid-template-columns: 100%;
+                grid-gap: 10px 10px;
+                min-height: 459px
+            }
+
+            .u-block-f38f-4 {
+                background-image: none
+            }
+
+            .u-block-f38f-5 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-17 {
+                width: 63.5156px;
+                height: 63.5156px;
+                margin-top: 41.4063px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-13 {
+                font-size: 1.875rem;
+                margin-top: -55.7344px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 0px
+            }
+
+            .u-block-f38f-7 {
+                background-image: none
+            }
+
+            .u-block-f38f-8 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-18 {
+                width: 63.5156px;
+                height: 63.5156px;
+                margin-top: 41.4063px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-14 {
+                font-size: 1.875rem;
+                margin-top: -55.7344px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 0px
+            }
+
+            .u-block-f38f-10 {
+                background-image: none
+            }
+
+            .u-block-f38f-11 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-19 {
+                width: 63.5156px;
+                height: 63.5156px;
+                margin-top: 41.4063px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-15 {
+                font-size: 1.875rem;
+                margin-top: -55.7344px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 0px
+            }
+        }
+    </style>
+    <style data-mode="LG">
+        @media (max-width: 0px) {
+            .u-block-f38f-1 {
+                background-image: url("https://pixabay.com/get/g2277e6386a563e72f01d2ea4c5f2b8c707db76fd6d41651ebac29c5a66b7fa76b006f1d5a7eb11ca05262dd8795e288771f59430b233abcfa955794df377045f_1280.jpg")
+            }
+
+            .u-block-f38f-2 {
+                min-height: 704px
+            }
+
+            .u-block-f38f-3 {
+                grid-template-rows: auto auto auto;
+                width: 622px;
+                height: auto;
+                margin-top: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 60px
+            }
+
+            .u-block-f38f-16 {
+                grid-template-columns: 100%;
+                grid-gap: 10px 10px;
+                min-height: 459px
+            }
+
+            .u-block-f38f-4 {
+                background-image: none
+            }
+
+            .u-block-f38f-5 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-17 {
+                width: 64px;
+                height: 64px;
+                margin-top: 41.4063px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-13 {
+                margin-top: -55.7344px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                font-size: 1.875rem
+            }
+
+            .u-block-f38f-7 {
+                background-image: none
+            }
+
+            .u-block-f38f-8 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-18 {
+                width: 64px;
+                height: 64px;
+                margin-top: -33px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-14 {
+                margin-top: -56px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 115px;
+                font-size: 1.875rem
+            }
+
+            .u-block-f38f-10 {
+                background-image: none
+            }
+
+            .u-block-f38f-11 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-19 {
+                width: 64px;
+                height: 64px;
+                margin-top: -33px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-15 {
+                margin-top: -56px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 115px;
+                font-size: 1.875rem
+            }
+        }
+    </style>
+    <style data-mode="MD">
+        @media (max-width: 0px) {
+            .u-block-f38f-1 {
+                background-image: url("https://pixabay.com/get/g2277e6386a563e72f01d2ea4c5f2b8c707db76fd6d41651ebac29c5a66b7fa76b006f1d5a7eb11ca05262dd8795e288771f59430b233abcfa955794df377045f_1280.jpg")
+            }
+
+            .u-block-f38f-2 {
+                min-height: 704px
+            }
+
+            .u-block-f38f-3 {
+                grid-template-rows: auto auto auto;
+                width: 622px;
+                height: auto;
+                margin-top: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 60px
+            }
+
+            .u-block-f38f-16 {
+                grid-template-columns: 100%;
+                grid-gap: 10px 10px;
+                min-height: 459px
+            }
+
+            .u-block-f38f-4 {
+                background-image: none
+            }
+
+            .u-block-f38f-5 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-17 {
+                width: 64px;
+                height: 64px;
+                margin-top: 41.4063px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-13 {
+                margin-top: -55.7344px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                font-size: 1.875rem
+            }
+
+            .u-block-f38f-7 {
+                background-image: none
+            }
+
+            .u-block-f38f-8 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-18 {
+                width: 64px;
+                height: 64px;
+                margin-top: -33px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-14 {
+                margin-top: -56px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 115px;
+                font-size: 1.875rem
+            }
+
+            .u-block-f38f-10 {
+                background-image: none
+            }
+
+            .u-block-f38f-11 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px
+            }
+
+            .u-block-f38f-19 {
+                width: 64px;
+                height: 64px;
+                margin-top: -33px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-15 {
+                margin-top: -56px;
+                margin-right: 115px;
+                margin-bottom: 0px;
+                margin-left: 115px;
+                font-size: 1.875rem
+            }
+        }
+    </style>
+    <style data-mode="SM">
+        @media (max-width: 0px) {
+            .u-block-f38f-1 {
+                background-image: url("https://pixabay.com/get/g2277e6386a563e72f01d2ea4c5f2b8c707db76fd6d41651ebac29c5a66b7fa76b006f1d5a7eb11ca05262dd8795e288771f59430b233abcfa955794df377045f_1280.jpg")
+            }
+
+            .u-block-f38f-2 {
+                min-height: 682.7660000000001px
+            }
+
+            .u-block-f38f-3 {
+                grid-template-rows: auto auto auto;
+                width: 540px;
+                height: auto;
+                margin-top: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 60px
+            }
+
+            .u-block-f38f-16 {
+                grid-template-columns: 100%;
+                grid-gap: 10px 10px;
+                min-height: 459px
+            }
+
+            .u-block-f38f-4 {
+                background-image: none
+            }
+
+            .u-block-f38f-5 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 10px;
+                padding-right: 10px
+            }
+
+            .u-block-f38f-17 {
+                width: 64px;
+                height: 64px;
+                margin-top: 41.4063px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-13 {
+                margin-top: -55.7344px;
+                margin-right: 73px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                font-size: 1.875rem
+            }
+
+            .u-block-f38f-7 {
+                background-image: none
+            }
+
+            .u-block-f38f-8 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 10px;
+                padding-right: 10px
+            }
+
+            .u-block-f38f-18 {
+                width: 64px;
+                height: 64px;
+                margin-top: -33px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-14 {
+                margin-top: -56px;
+                margin-right: 73px;
+                margin-bottom: 0px;
+                margin-left: 115px;
+                font-size: 1.875rem
+            }
+
+            .u-block-f38f-10 {
+                background-image: none
+            }
+
+            .u-block-f38f-11 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 10px;
+                padding-right: 10px
+            }
+
+            .u-block-f38f-19 {
+                width: 64px;
+                height: 64px;
+                margin-top: -33px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-15 {
+                margin-top: -56px;
+                margin-right: 73px;
+                margin-bottom: 0px;
+                margin-left: 115px;
+                font-size: 1.875rem
+            }
+        }
+    </style>
+    <style data-mode="XS">
+        @media (max-width: 0px) {
+            .u-block-f38f-1 {
+                background-image: url("https://pixabay.com/get/g2277e6386a563e72f01d2ea4c5f2b8c707db76fd6d41651ebac29c5a66b7fa76b006f1d5a7eb11ca05262dd8795e288771f59430b233abcfa955794df377045f_1280.jpg")
+            }
+
+            .u-block-f38f-2 {
+                min-height: 540.7660000000001px
+            }
+
+            .u-block-f38f-3 {
+                grid-template-rows: auto auto auto;
+                width: 340px;
+                height: auto;
+                margin-top: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 60px
+            }
+
+            .u-block-f38f-16 {
+                grid-template-columns: 100%;
+                grid-gap: 10px 10px;
+                min-height: 459px
+            }
+
+            .u-block-f38f-4 {
+                background-image: none
+            }
+
+            .u-block-f38f-5 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 10px;
+                padding-right: 10px
+            }
+
+            .u-block-f38f-17 {
+                width: 64px;
+                height: 64px;
+                margin-top: 41.4063px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-13 {
+                margin-top: -55.7344px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                font-size: 1.875rem
+            }
+
+            .u-block-f38f-7 {
+                background-image: none
+            }
+
+            .u-block-f38f-8 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 10px;
+                padding-right: 10px
+            }
+
+            .u-block-f38f-18 {
+                width: 64px;
+                height: 64px;
+                margin-top: -33px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-14 {
+                margin-top: -56px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 115px;
+                font-size: 1.875rem
+            }
+
+            .u-block-f38f-10 {
+                background-image: none
+            }
+
+            .u-block-f38f-11 {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 10px;
+                padding-right: 10px
+            }
+
+            .u-block-f38f-19 {
+                width: 64px;
+                height: 64px;
+                margin-top: -33px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: auto
+            }
+
+            .u-block-f38f-15 {
+                margin-top: -56px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 115px;
+                font-size: 1.875rem
+            }
+        }
+    </style>
 </section>
 {% endblock %}
