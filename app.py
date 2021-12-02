@@ -1,8 +1,8 @@
 from flask import *
 import flask_login
+from flask_login.utils import login_required
 from werkzeug import *
 from os import *
-import flask_login
 import sqlite3
 from flask_wtf import *
 from wtforms import *
@@ -14,16 +14,16 @@ app.config['UPLOAD_FOLDER']='circulars'
 app.config['SECRET_KEY'] = '19edda58164ffd609f09e7c8eb8cb46b'
 
 class LoginForm(FlaskForm):
-    username = StringField('Username',validators=[DataRequired(),Email()])
+    username = StringField('Username',validators=[DataRequired()])
     password = PasswordField('Password',validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
-    def validate_email(self, email):
+    def validate_username(self, username):
         conn = sqlite3.connect('database.sqlite')
         curs = conn.cursor()
-        curs.execute("SELECT email FROM login where username = (?)",[email.data])
-        valemail = curs.fetchone()
-        if valemail is None:
+        curs.execute("SELECT username FROM login where username = (?)",[username.data])
+        valusername = curs.fetchone()
+        if valusername is None:
             raise ValidationError('This User ID is not registered. Please register before login')
 
 login_manager = flask_login.LoginManager(app)
@@ -59,22 +59,29 @@ def load_user(user_id):
 @app.route("/login", methods=['GET','POST'])
 def login():
     if flask_login.current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('learners'))
     form = LoginForm()
     if form.validate_on_submit():
+        print('DB is accessed')
         conn = sqlite3.connect('database.sqlite')
         curs = conn.cursor()
         curs.execute("SELECT * FROM login where username = (?)",    [form.username.data])
-        user = list(curs.fetchone())
+        user = curs.fetchone()
         Us = load_user(user[0])
         if form.username.data == Us.username and form.password.data == Us.password:
-            login_user(Us, remember=form.remember.data)
-            Uusername = list({form.username.data})[0].split('@')[0]
+            flask_login.login_user(Us, remember=form.remember.data)
+            Uusername = form.username.data
             flash('Logged in successfully '+Uusername)
             redirect(url_for('index'))
         else:
             flash('Login Unsuccessfull.')
     return render_template('login.html',title='Login', form=form)
+
+@app.route("/logout")
+@login_required
+def logout():
+    flask_login.logout_user()
+    return redirect(url_for('index'))
 
 @app.route('/')
 def index():
@@ -119,17 +126,21 @@ def learners():
         return render_template('learners.html')
 
 @app.route('/class-notes')
+@login_required
 def notes():
     return render_template('notes.html')
 
 @app.route('/school-calendar')
+@login_required
 def calendar():
     return render_template('calendar.html')
 
 @app.route('/contact-a-teacher')
+@login_required
 def contact():
     return render_template('contact.html')
 
 @app.route('/curriculum')
+@login_required
 def curriculum():
     return render_template('curriculum.html')
