@@ -1,13 +1,13 @@
 from flask import *
 import flask_login
 from flask_login.utils import login_required
+from flask_admin import *
 from werkzeug import *
 from os import *
 import sqlite3
 from flask_wtf import *
 from wtforms import *
 from wtforms.validators import *
-
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER']='circulars'
@@ -21,19 +21,27 @@ class LoginForm(FlaskForm):
     def validate_username(self, username):
         conn = sqlite3.connect('database.sqlite')
         curs = conn.cursor()
-        curs.execute("SELECT username FROM login where username = (?)",[username.data])
+        curs.execute("SELECT UserName FROM login WHERE UserName = (?)",[username.data])
         valusername = curs.fetchone()
         if valusername is None:
             raise ValidationError('This User ID is not registered. Please register before login')
 
 login_manager = flask_login.LoginManager(app)
 login_manager.login_view = "login"
+
+LEVEL = {
+    'user':0,
+    'admin':1
+    }
+
 class User(flask_login.UserMixin):
-    def __init__(self, id, username, password):
+    def __init__(self, id, username, password, level=LEVEL['user']):
          self.id = id
          self.username = username
          self.password = password
          self.authenticated = False
+         self.level = level
+
     def is_active(self):
          return self.is_active()
     def is_anonymous(self):
@@ -44,12 +52,16 @@ class User(flask_login.UserMixin):
          return True
     def get_id(self):
          return self.id
+    def is_admin(self):
+        return self.level == LEVEL['admin']
+    def allowed(self, access_level)
+        return self.level >= access_level
 
 @login_manager.user_loader
 def load_user(user_id):
    conn = sqlite3.connect('database.sqlite')
    curs = conn.cursor()
-   curs.execute("SELECT * from login where learner_id = (?)",[user_id])
+   curs.execute("SELECT * FROM login WHERE ID = (?)",[user_id])
    lu = curs.fetchone()
    if lu is None:
       return None
@@ -65,7 +77,7 @@ def login():
         print('DB is accessed')
         conn = sqlite3.connect('database.sqlite')
         curs = conn.cursor()
-        curs.execute("SELECT * FROM login where username = (?)",    [form.username.data])
+        curs.execute("SELECT * FROM login WHERE UserName = (?)",    [form.username.data])
         user = curs.fetchone()
         Us = load_user(user[0])
         if form.username.data == Us.username and form.password.data == Us.password:
