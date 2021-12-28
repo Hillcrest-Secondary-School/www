@@ -46,6 +46,9 @@
     <Content Include="static\Post-Template.css" />
     <Content Include="static\school_fees.jpg" />
     <Content Include="static\subject_choice.jpg" />
+    <Content Include="static\w3.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\admissionpolicy.html">
       <SubType>Code</SubType>
     </Content>
@@ -74,6 +77,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="templates\subjectchoices.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\teachers.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="templates\upload.html">

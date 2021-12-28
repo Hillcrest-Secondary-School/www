@@ -1,7 +1,6 @@
 from flask import *
 import flask_login
 from flask_login.utils import login_required
-from flask_admin import *
 from werkzeug import *
 from os import *
 import sqlite3
@@ -35,12 +34,14 @@ LEVEL = {
     }
 
 class User(flask_login.UserMixin):
-    def __init__(self, id, username, password, level=LEVEL['user']):
+    def __init__(self, id, username, password, level):
          self.id = id
          self.username = username
          self.password = password
          self.authenticated = False
-         self.level = level
+         self.is_admin = False
+         if level == LEVEL['admin']:
+             self.is_admin = True
 
     def is_active(self):
          return self.is_active()
@@ -52,10 +53,6 @@ class User(flask_login.UserMixin):
          return True
     def get_id(self):
          return self.id
-    def is_admin(self):
-        return self.level == LEVEL['admin']
-    def allowed(self, access_level)
-        return self.level >= access_level
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -64,17 +61,20 @@ def load_user(user_id):
    curs.execute("SELECT * FROM login WHERE ID = (?)",[user_id])
    lu = curs.fetchone()
    if lu is None:
-      return None
+        return None
    else:
-      return User(int(lu[0]), lu[1], lu[2])
+        return User(int(lu[0]), lu[1], lu[2], lu[3])
+        
 
 @app.route("/login", methods=['GET','POST'])
 def login():
     if flask_login.current_user.is_authenticated:
-        return redirect(url_for('learners'))
+        if flask_login.current_user.is_admin:
+            return redirect(url_for('teachers'))
+        else:
+            return redirect(url_for('learners'))
     form = LoginForm()
     if form.validate_on_submit():
-        print('DB is accessed')
         conn = sqlite3.connect('database.sqlite')
         curs = conn.cursor()
         curs.execute("SELECT * FROM login WHERE UserName = (?)",    [form.username.data])
@@ -135,7 +135,15 @@ def upload_file():
 
 @app.route('/learners')
 def learners():
-        return render_template('learners.html')
+    return render_template('learners.html')
+
+@app.route('/teachers')
+@login_required
+def teachers():
+    if flask_login.current_user.is_admin:
+        return render_template('teachers.html')
+    else:
+        return 'You is not admin'
 
 @app.route('/class-notes')
 @login_required

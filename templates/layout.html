@@ -11,7 +11,7 @@
     <link rel="icon" href="/static/icon.png" type="image/icon type">
     <link rel="stylesheet" href="static/nicepage.css" media="screen">
     <link rel="stylesheet" href="static/Home.css" media="screen">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="static/w3.css" media="screen">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 
     <meta name="theme-color" content="#478ac9">
@@ -25,9 +25,17 @@
             <div class="w3-col s3">
                 <a href="{{ url_for('index') }}" class="w3-button w3-block w3-black" style="border-radius: 5px;">Home</a>
             </div>
+
+            {% if current_user.is_admin %}
+            <div class="w3-col s3">
+                <a href="{{ url_for('teachers') }}" class="w3-button w3-block w3-black" style="border-radius: 5px;">Teachers</a>
+            </div>
+            {% else %}
             <div class="w3-col s3">
                 <a href="{{ url_for('learners') }}" class="w3-button w3-block w3-black" style="border-radius: 5px;">Learners</a>
             </div>
+            {% endif %}
+
         </div>
     </div>
     <br />
