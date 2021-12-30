@@ -67,6 +67,9 @@
     <Content Include="templates\index.html" />
     <Content Include="templates\layout.html" />
     <Content Include="templates\learners.html" />
+    <Content Include="templates\learner_grades.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\login.html">
       <SubType>Code</SubType>
     </Content>
@@ -80,6 +83,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="templates\teachers.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="templates\teacher_grades.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="templates\upload.html">

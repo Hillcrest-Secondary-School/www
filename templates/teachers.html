@@ -1,4 +1,406 @@
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
 {% block content %}
-<h1>Hello admin</h1>
+<section class="u-align-center u-clearfix u-image u-section-1" id="carousel_3362" data-image-width="1280" data-image-height="853">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-left u-text u-text-1">Teacher's Dashboard</h2>
+        <div class="u-black u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-group-1" ; style="border-radius: 15px;">
+            <div class="u-container-layout u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
+                <span class="u-icon u-icon-circle u-text-white u-icon-1">
+                    <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 24 24" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-9a83"></use></svg><svg class="u-svg-content" viewBox="0 0 24 24" id="svg-9a83" style="enable-background:new 0 0 24 24;">
+                        <g id="icons">
+                            <g id="user">
+                                <ellipse cx="12" cy="8" rx="5" ry="6"></ellipse>
+                                <path d="M21.8,19.1c-0.9-1.8-2.6-3.3-4.8-4.2c-0.6-0.2-1.3-0.2-1.8,0.1c-1,0.6-2,0.9-3.2,0.9s-2.2-0.3-3.2-0.9    C8.3,14.8,7.6,14.7,7,15c-2.2,0.9-3.9,2.4-4.8,4.2C1.5,20.5,2.6,22,4.1,22h15.8C21.4,22,22.5,20.5,21.8,19.1z"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </span>
+                {% if current_user.is_authenticated %}
+                <h3 class="u-text u-text-default u-text-2">{{ current_user.username }}'s Profile</h3>
+                <p class="u-text u-text-default u-text-3">
+                    Welcome {{ current_user.username }}!<br>
+                    You are currently logged in to the Teacher's dashboard. Here you can manage your learners' profiles and class notes.
+                </p>
+                <a href="{{ url_for('logout') }}" class="u-border-1 u-border-black u-btn u-button-style u-hover-grey-75 u-text-black u-text-hover-white u-white u-btn-1" style="border-radius: 15px; width:100%">log out</a>
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+                <div class="u-align-left u-black u-container-style u-list-item u-repeater-item u-list-item-1" ; style="border-radius: 15px;">
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+                        <span class="u-icon u-icon-circle u-text-white u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-0982"></use></svg><svg class="u-svg-content" viewBox="0 0 512 512" id="svg-0982"><path d="M449.441,393.818V178.852c0-31.555-27.967-57.236-62.365-57.236H369.99v-3.434c0-31.566-27.967-57.236-62.365-57.236  h-23.034H152.586h-27.661c-34.388,0-62.365,25.67-62.365,57.236v214.965c0,31.555,27.978,57.236,62.365,57.236h17.084v3.435  c0,31.565,27.978,57.235,62.366,57.235h27.661h132.005h11.867h11.167C421.474,451.053,449.441,425.384,449.441,393.818z   M364.041,432.318H232.036h-27.661c-23.177,0-41.956-17.237-41.956-38.5v-3.435v-18.736V178.852c0-21.263,18.779-38.5,41.956-38.5  h27.661h117.545h14.46h5.949h17.085c23.177,0,41.956,17.237,41.956,38.5v214.966c0,21.263-18.779,38.5-41.956,38.5h-11.167H364.041z  "></path><path d="M197.397,214.935h162.334c4.484,0,8.115-3.632,8.115-8.116s-3.631-8.115-8.115-8.115H197.397  c-4.484,0-8.116,3.631-8.116,8.115S192.913,214.935,197.397,214.935z"></path><path d="M223.046,261.967c0,4.484,3.642,8.115,8.126,8.115h152.119c4.484,0,8.126-3.631,8.126-8.115s-3.642-8.127-8.126-8.127  H231.172C226.688,253.84,223.046,257.482,223.046,261.967z"></path><path d="M348.083,317.102c0-4.484-3.632-8.116-8.116-8.116h-142.57c-4.484,0-8.116,3.632-8.116,8.116s3.631,8.126,8.116,8.126  h142.57C344.451,325.228,348.083,321.587,348.083,317.102z"></path><path d="M391.417,372.249c0-4.484-3.642-8.115-8.126-8.115H249.689c-4.484,0-8.116,3.631-8.116,8.115s3.631,8.116,8.116,8.116  h133.602C387.776,380.365,391.417,376.733,391.417,372.249z"></path></svg></span>
+                        <h4 class="u-text u-text-default u-text-6">Class Notes</h4>
+                        <p class="u-text u-text-5">Upload class notes here.</p>
+                        <br />
+                        <a href="{{ url_for('notes') }}" class="u-border-1 u-border-black u-btn u-button-style u-hover-grey-75 u-text-black u-text-hover-white u-white u-btn-1" style="border-radius: 15px; width: 100%;">view</a>
+                    </div>
+                </div>
+                <div class="u-align-left u-black u-container-style u-list-item u-repeater-item u-video-cover" ; style="border-radius: 15px;">
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                        <span class="u-icon u-icon-circle u-text-white u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 64 64" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-0ce4"></use></svg><svg class="u-svg-content" viewBox="0 0 64 64" id="svg-0ce4"><path d="M62.869,16.842h-0.057c-1.096,0.007-1.266-0.945-1.285-1.387V8.542c0-0.738-0.598-1.336-1.334-1.336H40.428  c-4.959,0-6.809,1.838-7.268,2.415l-0.126,0.175l-0.001,0.003l-0.391,0.536c-0.001,0-0.001,0-0.001,0  c-0.525,0.721-0.982,0.414-1.202,0.178l-0.748-0.933l-0.37-0.446c-0.622-0.653-2.243-1.928-5.456-1.928H3.808  c-0.738,0-1.336,0.598-1.336,1.336v6.825c0,1.195-0.649,1.435-1.047,1.475H1.129c-0.324,0.02-1.078,0.208-1.078,1.595v32.529  c0,0.798,0.647,1.444,1.445,1.444h19.218c6.131,0,8.803,2.312,9.604,3.199l0.457,0.566h0.001c0,0,1.226,1.387,2.518,0l0,0  l0.268-0.314v0.001l0.004-0.003l0.342-0.4c0.01-0.012,0.092-0.104,0.211-0.226c1.023-0.995,3.58-2.823,8.58-2.823h19.805  c0.799,0,1.445-0.646,1.445-1.444V18.122C63.949,16.946,63.098,16.848,62.869,16.842z M58.551,45.862  c0,0.641-0.535,1.158-1.201,1.158H41.055c-5.799,0-7.904,2.62-7.904,2.62l-0.267,0.358l-0.125,0.173c-0.001,0-0.001,0-0.001,0  c-0.553,0.751-1.366,0.006-1.37,0.002l-0.375-0.469c-0.278-0.334-2.408-2.685-7.563-2.685h-16.8c-0.663,0-1.199-0.518-1.199-1.158  V11.199c0-0.64,0.536-1.158,1.199-1.158h13.043c9.702,0,10.621,5.511,10.684,7.112v24.106c0,1.752,0.835,2.081,1.306,2.129h0.701  c0.48-0.048,1.243-0.333,1.243-1.7V16.842h-0.008c0.072-2.005,0.854-6.802,6.689-6.802H57.35c0.666,0,1.201,0.518,1.201,1.158  V45.862z" fill="currentColor"></path></svg></span>
+                        <h4 class="u-text u-text-default u-text-6">Curriculum</h4>
+                        <p class="u-text u-text-7">Upload your class' curriculum and lesson plans here.&nbsp;</p>
+                        <a href="{{ url_for('curriculum') }}" class="u-border-1 u-border-black u-btn u-button-style u-hover-grey-75 u-text-black u-text-hover-white u-white u-btn-1" style="border-radius: 15px; width:100%">view</a>
+                    </div>
+                </div>
+                <div class="u-align-left u-black u-container-style u-list-item u-repeater-item u-video-cover" ; style="border-radius: 15px;">
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
+                        <span class="u-icon u-icon-circle u-text-white u-icon-4"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-1f1c"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" id="svg-1f1c" style="enable-background:new 0 0 16 16;"><path d="M14,0h-2v1H4V0H2v1H0v3v1v10v1h1h15v-1V5V4V1h-2V0z M15,5v10H1V5H15z"></path><rect height="3" width="3" x="11" y="6"></rect><rect height="3" width="3" x="11" y="10"></rect><rect height="3" width="3" x="7" y="10"></rect><rect height="3" width="3" x="3" y="10"></rect><rect height="3" width="3" x="7" y="6"></rect><rect height="3" width="3" x="3" y="6"></rect></svg></span>
+                        <h4 class="u-text u-text-default u-text-8">Grades</h4>
+                        <p class="u-text u-text-9">View or update the grades of your students.</p>
+                        <a href="{{ url_for('teacher_grades') }}" class="u-border-1 u-border-black u-btn u-button-style u-hover-grey-75 u-text-black u-text-hover-white u-white u-btn-1" style="border-radius: 15px; width:100%">view</a>
+                    </div>
+                </div>
+                <div class="u-align-left u-black u-container-style u-list-item u-repeater-item u-video-cover" ; style="border-radius: 15px;">
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
+                        <span class="u-icon u-icon-circle u-text-white u-icon-5">
+                        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 24 24" style="">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-dfb9"></use>
+                            </svg>
+                        <svg class="u-svg-content" viewBox="0 0 24 24" id="svg-dfb9">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </span>
+                        <h4 class="u-text u-text-default u-text-10">Circulars</h4>
+                        <p class="u-text u-text-11">Manage the school's circulars.</p>
+                        <br />
+                        <a href="{{ url_for('upload_circular') }}" class="u-border-1 u-border-black u-btn u-button-style u-hover-grey-75 u-text-black u-text-hover-white u-white u-btn-1" style="border-radius: 15px; width:100%">view</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .u-section-1 {
+            background-image: url("static/stacked_books.jpg");
+            background-position: 50% 50%;
+        }
+
+            .u-section-1 .u-sheet-1 {
+                min-height: 955px;
+            }
+
+            .u-section-1 .u-text-1 {
+                font-weight: 700;
+                font-size: 3.75rem;
+                margin: 60px 485px 0 1px;
+            }
+
+            .u-section-1 .u-group-1 {
+                width: 380px;
+                min-height: 636px;
+                background-image: none;
+                margin: 33px auto 0 0;
+            }
+
+            .u-section-1 .u-container-layout-1 {
+                padding: 30px;
+            }
+
+            .u-section-1 .u-icon-1 {
+                height: 64px;
+                width: 64px;
+                margin: 85px 20px 0;
+            }
+
+            .u-section-1 .u-text-2 {
+                margin-left: 0;
+                margin-bottom: 0;
+                font-weight: 700;
+                margin-top: 20px;
+            }
+
+            .u-section-1 .u-text-3 {
+                margin-left: 0;
+                font-size: 1.25rem;
+                margin-bottom: 0;
+                margin-top: 20px;
+            }
+
+            .u-section-1 .u-btn-1 {
+                font-size: 1.25rem;
+                border-style: solid;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin: 33px auto 0 0;
+            }
+
+            .u-section-1 .u-list-1 {
+                width: 740px;
+                margin: -636px 0 60px auto;
+            }
+
+            .u-section-1 .u-repeater-1 {
+                grid-template-columns: calc(50% - 11px) calc(50% - 11px);
+                grid-gap: 22px 22px;
+                min-height: 636px;
+            }
+
+            .u-section-1 .u-list-item-1 {
+                background-image: none;
+            }
+
+            .u-section-1 .u-container-layout-2 {
+                padding: 55px 30px 30px;
+            }
+
+            .u-section-1 .u-icon-2 {
+                height: 44px;
+                width: 44px;
+                background-image: none;
+                margin: 0;
+            }
+
+            .u-section-1 .u-text-4 {
+                margin-top: 20px;
+                font-weight: 700;
+                margin-bottom: 0;
+            }
+
+            .u-section-1 .u-text-5 {
+                margin: 33px 105px 0 0;
+            }
+
+            .u-section-1 .u-container-layout-3 {
+                padding: 55px 30px 30px;
+            }
+
+            .u-section-1 .u-icon-3 {
+                height: 44px;
+                width: 44px;
+                background-image: none;
+                margin: 0;
+            }
+
+            .u-section-1 .u-text-6 {
+                margin-top: 20px;
+                font-weight: 700;
+                margin-bottom: 0;
+            }
+
+            .u-section-1 .u-text-7 {
+                margin: 33px 0 0;
+            }
+
+            .u-section-1 .u-container-layout-4 {
+                padding: 55px 30px 30px;
+            }
+
+            .u-section-1 .u-icon-4 {
+                height: 44px;
+                width: 44px;
+                background-image: none;
+                margin: 0;
+            }
+
+            .u-section-1 .u-text-8 {
+                margin-top: 20px;
+                font-weight: 700;
+                margin-bottom: 0;
+            }
+
+            .u-section-1 .u-text-9 {
+                margin: 33px 0 0;
+            }
+
+            .u-section-1 .u-container-layout-5 {
+                padding: 55px 30px 30px;
+            }
+
+            .u-section-1 .u-icon-5 {
+                height: 44px;
+                width: 44px;
+                background-image: none;
+                margin: 0;
+            }
+
+            .u-section-1 .u-text-10 {
+                margin-top: 20px;
+                font-weight: 700;
+                margin-bottom: 0;
+            }
+
+            .u-section-1 .u-text-11 {
+                margin: 33px 0 0;
+            }
+
+        @media (max-width: 1199px) {
+            .u-section-1 .u-sheet-1 {
+                min-height: 855px;
+            }
+
+            .u-section-1 .u-text-1 {
+                margin-right: 286px;
+                margin-left: 0;
+            }
+
+            .u-section-1 .u-group-1 {
+                width: 320px;
+            }
+
+            .u-section-1 .u-text-3 {
+                width: auto;
+                margin-top: 19px;
+                margin-right: 0;
+            }
+
+            .u-section-1 .u-btn-1 {
+                margin-top: 34px;
+            }
+
+            .u-section-1 .u-list-1 {
+                width: 600px;
+                height: auto;
+            }
+
+            .u-section-1 .u-icon-2 {
+                color: rgb(17, 17, 17) !important;
+            }
+
+            .u-section-1 .u-icon-3 {
+                color: currentcolor !important;
+            }
+
+            .u-section-1 .u-icon-5 {
+                color: currentcolor !important;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .u-section-1 .u-sheet-1 {
+                min-height: 1311px;
+            }
+
+            .u-section-1 .u-text-1 {
+                margin-right: 66px;
+            }
+
+            .u-section-1 .u-group-1 {
+                min-height: 350px;
+                margin-top: 3px;
+                margin-right: initial;
+                margin-left: initial;
+                width: auto;
+            }
+
+            .u-section-1 .u-container-layout-1 {
+                padding-top: 13px;
+                padding-bottom: 14px;
+            }
+
+            .u-section-1 .u-icon-1 {
+                margin-top: 0;
+            }
+
+            .u-section-1 .u-list-1 {
+                margin-top: 20px;
+                margin-right: initial;
+                margin-left: initial;
+                width: auto;
+            }
+
+            .u-section-1 .u-container-layout-2 {
+                padding-top: 30px;
+            }
+
+            .u-section-1 .u-text-5 {
+                margin-right: 85px;
+            }
+
+            .u-section-1 .u-container-layout-3 {
+                padding-top: 30px;
+            }
+
+            .u-section-1 .u-container-layout-4 {
+                padding-top: 30px;
+            }
+
+            .u-section-1 .u-container-layout-5 {
+                padding-top: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .u-section-1 .u-sheet-1 {
+                min-height: 835px;
+            }
+
+            .u-section-1 .u-text-1 {
+                margin-right: 0;
+            }
+
+            .u-section-1 .u-container-layout-1 {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .u-section-1 .u-container-layout-2 {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .u-section-1 .u-text-5 {
+                margin-right: 0;
+            }
+
+            .u-section-1 .u-container-layout-3 {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .u-section-1 .u-container-layout-4 {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .u-section-1 .u-container-layout-5 {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .u-section-1 .u-sheet-1 {
+                min-height: 702px;
+            }
+
+            .u-section-1 .u-text-1 {
+                font-size: 3rem;
+            }
+
+            .u-section-1 .u-container-layout-1 {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .u-section-1 .u-repeater-1 {
+                grid-template-columns: 100%;
+            }
+
+            .u-section-1 .u-container-layout-2 {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .u-section-1 .u-container-layout-3 {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .u-section-1 .u-container-layout-4 {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .u-section-1 .u-container-layout-5 {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
+
+</section>
 {% endblock %}

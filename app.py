@@ -1,3 +1,4 @@
+import re
 from flask import *
 import flask_login
 from flask_login.utils import login_required
@@ -7,6 +8,7 @@ import sqlite3
 from flask_wtf import *
 from wtforms import *
 from wtforms.validators import *
+from functools import wraps
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER']='circulars'
@@ -53,6 +55,8 @@ class User(flask_login.UserMixin):
          return True
     def get_id(self):
          return self.id
+    def allowed(self, access_level):
+        return self.is_admin >= access_level
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -64,7 +68,6 @@ def load_user(user_id):
         return None
    else:
         return User(int(lu[0]), lu[1], lu[2], lu[3])
-        
 
 @app.route("/login", methods=['GET','POST'])
 def login():
@@ -95,6 +98,18 @@ def logout():
     flask_login.logout_user()
     return redirect(url_for('index'))
 
+def admin_required(func):
+    @wraps(func)
+    def decorated_view(*args, **kwargs):
+        try:
+            if not flask_login.current_user.is_admin:
+                return current_app.login_manager.unauthorized()
+        except:
+            return current_app.login_manager.unauthorized()
+        return func(*args, **kwargs)
+    return decorated_view
+
+
 @app.route('/')
 def index():
     return render_template('index.html', footer=True)
@@ -121,46 +136,50 @@ def download(filename):
     full_path = path.join(app.root_path, app.config['UPLOAD_FOLDER'])
     return send_from_directory(full_path, filename)
 
-@app.route('/upload')
-def upload():
+@app.route('/learners')
+def learners():
+    return render_template('learners.html')
+
+@app.route('/learners/class-notes')
+@login_required
+def notes():
+    return render_template('notes.html')
+
+@app.route('/learners/school-calendar')
+@login_required
+def calendar():
+    return render_template('calendar.html')
+
+@app.route('/learners/contact-a-teacher')
+@login_required
+def contact():
+    return render_template('contact.html')
+
+@app.route('/learners/curriculum')
+@login_required
+def curriculum():
+    return render_template('curriculum.html')
+
+@app.route('/teachers')
+@admin_required
+def teachers():
+    return render_template('teachers.html')
+
+@app.route('/teachers/grades')
+@admin_required
+def teacher_grades():
+    return render_template('teacher_grades.html')
+
+@app.route('/teacher/upload-circular')
+@admin_required
+def upload_circular():
    return render_template('upload.html')
 
-@app.route('/uploader', methods = ['GET', 'POST'])
-def upload_file():
+@app.route('/teacher/uploader-circular', methods = ['GET', 'POST'])
+@admin_required
+def uploader_cicrular():
    if request.method == 'POST':
       f = request.files['file']
       f.save(path.join(app.config['UPLOAD_FOLDER'], f.filename))
       
       return render_template('upload.html', success=True)
-
-@app.route('/learners')
-def learners():
-    return render_template('learners.html')
-
-@app.route('/teachers')
-@login_required
-def teachers():
-    if flask_login.current_user.is_admin:
-        return render_template('teachers.html')
-    else:
-        return 'You is not admin'
-
-@app.route('/class-notes')
-@login_required
-def notes():
-    return render_template('notes.html')
-
-@app.route('/school-calendar')
-@login_required
-def calendar():
-    return render_template('calendar.html')
-
-@app.route('/contact-a-teacher')
-@login_required
-def contact():
-    return render_template('contact.html')
-
-@app.route('/curriculum')
-@login_required
-def curriculum():
-    return render_template('curriculum.html')
