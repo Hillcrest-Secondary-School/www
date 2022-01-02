@@ -16,7 +16,7 @@
                     </svg>
                 </span>
                 {% if current_user.is_authenticated %}
-                <h3 class="u-text u-text-default u-text-2">{{ current_user.username }}'s Profile</h3>
+                <h3 class="u-text u-text-default u-text-2">{{ current_user.username }}'s Dashboard</h3>
                 <p class="u-text u-text-default u-text-3">
                     Welcome {{ current_user.username }}!<br>
                     You are currently logged in to the Teacher's dashboard. Here you can manage your learners' profiles and class notes.
@@ -39,7 +39,14 @@
                 </div>
                 <div class="u-align-left u-black u-container-style u-list-item u-repeater-item u-video-cover" ; style="border-radius: 15px;">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                        <span class="u-icon u-icon-circle u-text-white u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 64 64" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-0ce4"></use></svg><svg class="u-svg-content" viewBox="0 0 64 64" id="svg-0ce4"><path d="M62.869,16.842h-0.057c-1.096,0.007-1.266-0.945-1.285-1.387V8.542c0-0.738-0.598-1.336-1.334-1.336H40.428  c-4.959,0-6.809,1.838-7.268,2.415l-0.126,0.175l-0.001,0.003l-0.391,0.536c-0.001,0-0.001,0-0.001,0  c-0.525,0.721-0.982,0.414-1.202,0.178l-0.748-0.933l-0.37-0.446c-0.622-0.653-2.243-1.928-5.456-1.928H3.808  c-0.738,0-1.336,0.598-1.336,1.336v6.825c0,1.195-0.649,1.435-1.047,1.475H1.129c-0.324,0.02-1.078,0.208-1.078,1.595v32.529  c0,0.798,0.647,1.444,1.445,1.444h19.218c6.131,0,8.803,2.312,9.604,3.199l0.457,0.566h0.001c0,0,1.226,1.387,2.518,0l0,0  l0.268-0.314v0.001l0.004-0.003l0.342-0.4c0.01-0.012,0.092-0.104,0.211-0.226c1.023-0.995,3.58-2.823,8.58-2.823h19.805  c0.799,0,1.445-0.646,1.445-1.444V18.122C63.949,16.946,63.098,16.848,62.869,16.842z M58.551,45.862  c0,0.641-0.535,1.158-1.201,1.158H41.055c-5.799,0-7.904,2.62-7.904,2.62l-0.267,0.358l-0.125,0.173c-0.001,0-0.001,0-0.001,0  c-0.553,0.751-1.366,0.006-1.37,0.002l-0.375-0.469c-0.278-0.334-2.408-2.685-7.563-2.685h-16.8c-0.663,0-1.199-0.518-1.199-1.158  V11.199c0-0.64,0.536-1.158,1.199-1.158h13.043c9.702,0,10.621,5.511,10.684,7.112v24.106c0,1.752,0.835,2.081,1.306,2.129h0.701  c0.48-0.048,1.243-0.333,1.243-1.7V16.842h-0.008c0.072-2.005,0.854-6.802,6.689-6.802H57.35c0.666,0,1.201,0.518,1.201,1.158  V45.862z" fill="currentColor"></path></svg></span>
+                        <span class="u-icon u-icon-circle u-text-white u-icon-3">
+                            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 64 64" style="">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-0ce4"></use>
+                            </svg>
+                        <svg class="u-svg-content" viewBox="0 0 64 64" id="svg-0ce4">
+                            <path d="M62.869,16.842h-0.057c-1.096,0.007-1.266-0.945-1.285-1.387V8.542c0-0.738-0.598-1.336-1.334-1.336H40.428  c-4.959,0-6.809,1.838-7.268,2.415l-0.126,0.175l-0.001,0.003l-0.391,0.536c-0.001,0-0.001,0-0.001,0  c-0.525,0.721-0.982,0.414-1.202,0.178l-0.748-0.933l-0.37-0.446c-0.622-0.653-2.243-1.928-5.456-1.928H3.808  c-0.738,0-1.336,0.598-1.336,1.336v6.825c0,1.195-0.649,1.435-1.047,1.475H1.129c-0.324,0.02-1.078,0.208-1.078,1.595v32.529  c0,0.798,0.647,1.444,1.445,1.444h19.218c6.131,0,8.803,2.312,9.604,3.199l0.457,0.566h0.001c0,0,1.226,1.387,2.518,0l0,0  l0.268-0.314v0.001l0.004-0.003l0.342-0.4c0.01-0.012,0.092-0.104,0.211-0.226c1.023-0.995,3.58-2.823,8.58-2.823h19.805  c0.799,0,1.445-0.646,1.445-1.444V18.122C63.949,16.946,63.098,16.848,62.869,16.842z M58.551,45.862  c0,0.641-0.535,1.158-1.201,1.158H41.055c-5.799,0-7.904,2.62-7.904,2.62l-0.267,0.358l-0.125,0.173c-0.001,0-0.001,0-0.001,0  c-0.553,0.751-1.366,0.006-1.37,0.002l-0.375-0.469c-0.278-0.334-2.408-2.685-7.563-2.685h-16.8c-0.663,0-1.199-0.518-1.199-1.158  V11.199c0-0.64,0.536-1.158,1.199-1.158h13.043c9.702,0,10.621,5.511,10.684,7.112v24.106c0,1.752,0.835,2.081,1.306,2.129h0.701  c0.48-0.048,1.243-0.333,1.243-1.7V16.842h-0.008c0.072-2.005,0.854-6.802,6.689-6.802H57.35c0.666,0,1.201,0.518,1.201,1.158  V45.862z" fill="currentColor"></path>
+                            </svg>
+                        </span>
                         <h4 class="u-text u-text-default u-text-6">Curriculum</h4>
                         <p class="u-text u-text-7">Upload your class' curriculum and lesson plans here.&nbsp;</p>
                         <a href="{{ url_for('curriculum') }}" class="u-border-1 u-border-black u-btn u-button-style u-hover-grey-75 u-text-black u-text-hover-white u-white u-btn-1" style="border-radius: 15px; width:100%">view</a>
@@ -47,7 +54,12 @@
                 </div>
                 <div class="u-align-left u-black u-container-style u-list-item u-repeater-item u-video-cover" ; style="border-radius: 15px;">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
-                        <span class="u-icon u-icon-circle u-text-white u-icon-4"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-1f1c"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" id="svg-1f1c" style="enable-background:new 0 0 16 16;"><path d="M14,0h-2v1H4V0H2v1H0v3v1v10v1h1h15v-1V5V4V1h-2V0z M15,5v10H1V5H15z"></path><rect height="3" width="3" x="11" y="6"></rect><rect height="3" width="3" x="11" y="10"></rect><rect height="3" width="3" x="7" y="10"></rect><rect height="3" width="3" x="3" y="10"></rect><rect height="3" width="3" x="7" y="6"></rect><rect height="3" width="3" x="3" y="6"></rect></svg></span>
+                        <span class="u-icon u-icon-circle u-text-white u-icon-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg>
+                        </span>
                         <h4 class="u-text u-text-default u-text-8">Grades</h4>
                         <p class="u-text u-text-9">View or update the grades of your students.</p>
                         <a href="{{ url_for('teacher_grades') }}" class="u-border-1 u-border-black u-btn u-button-style u-hover-grey-75 u-text-black u-text-hover-white u-white u-btn-1" style="border-radius: 15px; width:100%">view</a>
@@ -56,11 +68,8 @@
                 <div class="u-align-left u-black u-container-style u-list-item u-repeater-item u-video-cover" ; style="border-radius: 15px;">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
                         <span class="u-icon u-icon-circle u-text-white u-icon-5">
-                        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 24 24" style="">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-dfb9"></use>
-                            </svg>
-                        <svg class="u-svg-content" viewBox="0 0 24 24" id="svg-dfb9">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                             </svg>
                         </span>
                         <h4 class="u-text u-text-default u-text-10">Circulars</h4>
@@ -75,7 +84,7 @@
 
     <style>
         .u-section-1 {
-            background-image: url("static/stacked_books.jpg");
+            background-image: url({{ url_for('static', filename='images/stacked_books.jpg') }});
             background-position: 50% 50%;
         }
 

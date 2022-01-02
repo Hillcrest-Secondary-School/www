@@ -8,20 +8,23 @@
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <meta http-equiv="content-language" content="en-us">
     <title>Hillcrest Secondary</title>
-    <link rel="icon" href="/static/icon.png" type="image/icon type">
-    <link rel="stylesheet" href="{{ url_for('static', filename='nicepage.css') }}" media="screen">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Home.css') }}" media="screen">
-    <link rel="stylesheet" href="{{ url_for('static', filename='w3.css') }}" media="screen">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/icon type">
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/nicepage.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/Home.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/w3.css') }}" media="screen">
+    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='scripts/jquery.js') }}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='scripts/nicepage.js') }}" defer=""></script>
+
     <!--
         <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     -->
     <meta name="theme-color" content="#478ac9">
 </head>
-<body class="u-body">
-    <div class="w3-top">
-        <div class="w3-row w3-padding w3-black">
+<body class="u-body u-overlap u-overlap-contrast u-overlap-transparent">
+    <header class="u-clearfix u-header u-sticky u-offcanvas">
+        <div class="w3-row w3-padding u-black ">
             <div class="w3-col s3">
-                <img src="/static/icon.png" style="height: 40px">
+                <img src="{{ url_for('static', filename='images/icon.png') }}" style="height: 40px">
             </div>
             <div class="w3-col s3">
                 <a href="{{ url_for('index') }}" class="w3-button w3-block w3-black" style="border-radius: 5px;">Home</a>
@@ -36,9 +39,62 @@
                 <a href="{{ url_for('learners') }}" class="w3-button w3-block w3-black" style="border-radius: 5px;">Learners</a>
             </div>
             {% endif %}
-
         </div>
-    </div>
+
+        <style class="offcanvas-style">
+            .u-offcanvas .u-sidenav {
+                flex-basis: 250px !important;
+            }
+
+            .u-offcanvas:not(.u-menu-open-right) .u-sidenav {
+                margin-left: -250px;
+            }
+
+            .u-offcanvas.u-menu-open-right .u-sidenav {
+                margin-right: -250px;
+            }
+
+            @keyframes menu-shift-left {
+                from {
+                    left: 0;
+                }
+
+                to {
+                    left: 250px;
+                }
+            }
+
+            @keyframes menu-unshift-left {
+                from {
+                    left: 250px;
+                }
+
+                to {
+                    left: 0;
+                }
+            }
+
+            @keyframes menu-shift-right {
+                from {
+                    right: 0;
+                }
+
+                to {
+                    right: 250px;
+                }
+            }
+
+            @keyframes menu-unshift-right {
+                from {
+                    right: 250px;
+                }
+
+                to {
+                    right: 0;
+                }
+            }
+        </style>
+    </header>
     <br />
     <br />
     {% block content %}}
