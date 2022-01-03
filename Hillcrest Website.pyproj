@@ -6,7 +6,7 @@
     <ProjectGuid>2b3d3eda-394e-4041-8c1e-2ba743062a2f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
-    <StartupFile>wsgi.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,7 +27,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
-    <Compile Include="wsgi.py" />
+    <Compile Include="main.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="circulars\" />
@@ -38,7 +38,13 @@
     <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app.yaml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="database.sqlite" />
+    <Content Include="requirements.txt">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="static\content\Home.css" />
     <Content Include="static\content\nicepage.css" />
     <Content Include="static\content\Post-Template.css" />
